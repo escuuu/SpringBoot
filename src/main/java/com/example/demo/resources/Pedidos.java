@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -33,7 +34,7 @@ public class Pedidos {
 	private Estado estado;
 	
     @JoinTable(
-            name = "pedidos_productos",
+            name = "detalles_productos",
             joinColumns = @JoinColumn(name= "fk_pedido", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "fk_producto", nullable = false)
         )
@@ -41,8 +42,8 @@ public class Pedidos {
 	@Column(nullable = false)
 	private List<Productos> productos;
 	
-    @OneToMany(cascade = CascadeType.ALL)
-	@Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "fk_cliente", nullable = false, updatable = false)
 	private Clientes cliente;
 	
 	public Pedidos(Long id_pedido, String fecha_creacion, Estado estado, List<Productos> productos, Clientes cliente) {
