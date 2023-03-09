@@ -34,7 +34,7 @@ public class Pedidos {
 	private Estado estado;
 	
     @JoinTable(
-            name = "detalles_productos",
+            name = "detalles_productos",       
             joinColumns = @JoinColumn(name= "fk_pedido", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "fk_producto", nullable = false)
         )
