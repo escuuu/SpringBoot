@@ -37,8 +37,10 @@ public class PedidosDAO implements IPedidosDAO{
 	}
 	
 	@Transactional
-	public void updatePedidos(Pedidos pedido) {
+	public boolean updatePedidos(Pedidos pedido) {
 		em.merge(pedido);
+		
+		return true;
 	}
 	
 	public boolean deletePedido(Pedidos pedido) {

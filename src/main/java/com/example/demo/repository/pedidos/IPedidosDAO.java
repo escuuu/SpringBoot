@@ -13,7 +13,7 @@ public interface IPedidosDAO {
 	
 	Pedidos createPedidos(Pedidos pedido);
 	
-	void updatePedidos(Pedidos pedido);
+	boolean updatePedidos(Pedidos pedido);
 	
 	boolean deletePedido(Pedidos pedido);
 }
